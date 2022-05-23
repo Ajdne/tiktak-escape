@@ -351,6 +351,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/CapsuleLaunchScript.cs"
 "Assets/Scripts/CapsuleTouchScript.cs"
+"Assets/Scripts/DragIndicatorScript.cs"
 "Assets/Scripts/SpawnCandyScript.cs"
 -langversion:9.0
 
