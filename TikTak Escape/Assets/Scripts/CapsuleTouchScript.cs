@@ -7,76 +7,61 @@ public class CapsuleTouchScript : MonoBehaviour
     Ray ray;
     RaycastHit hit;
  
+    bool mousePressed;
     public int power;
-    public Vector3 minPower;
-    public Vector3 maxPower;
     Vector3 startPoint;
     Vector3 endPoint;
     Vector3 force;
-    Rigidbody hitObject;
-    Rigidbody pogodjen;
+
+    [SerializeField] SimulateTrajectoryScript simTrajectory;
+
+    void Start() {
+        simTrajectory = GetComponent<SimulateTrajectoryScript>();
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0)) {          // on mouse click
 
             ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 
-            if (Physics.Raycast (ray, out hit)) {
+            if (Physics.Raycast (ray, out hit)) {       // if the click hits a target
 
-            startPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
+                mousePressed = true;  
 
+                //  PROBLEM JE NEGDE U WORLD TO SCREEN
+                // Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+                startPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);                
             }
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+            
+             
+        force = (startPoint - endPoint) * power;
+
+        if (mousePressed) {     // while the mouse is pressed down
 
             endPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0);
 
-            print(pogodjen);
-            hit.rigidbody.AddForce((startPoint - endPoint) * power);
-        }
+            simTrajectory.lineRenderer.enabled = true;  // enable line renderer
 
-
-/*         ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-
-        if (Physics.Raycast (ray, out hit)) {   // if the ray hits something, store data in hit variable
-                                                // candy box is in Ignore Raycast Layer
-            if (Input.GetMouseButtonDown(0)) {
-                print("Click!");
-                //LaunchCapsule(hit.rigidbody);
-
-                startPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                startPoint.z = 0;
-
-                hitObject = hit.rigidbody;
-            }
+            simTrajectory.SimulateTrajectory(startPoint, force);
 
         }
 
-        if (Input.GetMouseButtonUp(0)) {
-                endPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        
 
-                print("Otpust");
-                print(Input.mousePosition);
+        // simTrajectory.SimulateTrajectory(startPoint, force);     // draw line renderer
 
-                endPoint.z = 0;
+        if (Input.GetMouseButtonUp(0)) {            // on mouse release
 
-                force = new Vector3(Mathf.Clamp(startPoint.x - endPoint.x, minPower.x, maxPower.x),
-                                    Mathf.Clamp(startPoint.y - endPoint.y, minPower.y, maxPower.y), 0);
+            mousePressed = false;
 
-                hitObject.AddForce(force * power);
+            hit.rigidbody.AddForce(force);
 
-            } */
-
-    /*
-    bool CapsuleTouch() {   // MOZDA NEMA POTREBE ZA OVIME
-
-        if (hit.collider.tag == "Capsule") {
-            return (true);
+            simTrajectory.lineRenderer.enabled = false;     // disable line renderer
         }
-        return (false);
     }
-    */
-}
+
 }
