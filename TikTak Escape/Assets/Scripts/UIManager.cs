@@ -6,7 +6,7 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-    [SerializeField] TextMeshProUGUI movesLeftText;
+    [SerializeField] TextMeshProUGUI candiesLeftText;
 
     private void Awake()
     {
@@ -15,12 +15,12 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        movesLeftText.text = "MOVES left: " + GameManager.Instance.numberOfMoves.ToString();
+        candiesLeftText.text = "Candies left: " + GameManager.Instance.numberOfCandies.ToString();
     }
 
     // Update is called once per frame
-    public void UpdateMovesUI()
+    public void UpdateUI()
     {
-        movesLeftText.text = "MOVES left: " + GameManager.Instance.numberOfMoves.ToString();
+        candiesLeftText.text = "Candies left: " + GameManager.Instance.numberOfCandies.ToString();
     }
 }

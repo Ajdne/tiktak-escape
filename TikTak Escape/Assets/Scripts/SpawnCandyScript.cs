@@ -6,14 +6,13 @@ public class SpawnCandyScript : MonoBehaviour
 {
 
     public GameObject Candy;
-    public int m_numberOfCandies;
 
     void Start() {
 
-        for (int i = 0; i < m_numberOfCandies; i++) {
+        for (int i = 0; i < GameManager.Instance.numberOfCandies; i++) {
 
             float randomX = Random.Range(-4, 4);
-            float randomY = Random.Range(0.5f, 9);
+            float randomY = Random.Range(0.5f, 5);
 
             float randomRotX = Random.Range(0, 180);
             float randomRotY = Random.Range(0, 180);

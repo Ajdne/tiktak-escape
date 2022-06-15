@@ -18,23 +18,8 @@ public class CapsuleTouchScript : MonoBehaviour
     Vector3 force;
 
     // ------------ TRAJECTORY ---------------
-    // public GameObject trajectoryDot;
-    // public GameObject[] trajectoryDots;
-    // [SerializeField] private int numberOfDots;
     public LineRenderer lineRend;
     // ---------------------------------------
-
-    private void Start()
-    {
-        //trajectoryDots = new GameObject[numberOfDots];
-
-
-        // for (int i = 0; i < numberOfDots; i++)
-        //         {
-        //             trajectoryDots[i] = Instantiate(trajectoryDot, gameObject.transform);
-        //         }   
-    }
-
 
     void Update()
     {
@@ -44,29 +29,23 @@ public class CapsuleTouchScript : MonoBehaviour
 
             if (Physics.Raycast (ray, out hit)) {       // if the click hits a target
 
-                //mousePressed = true;  
+                if (hit.rigidbody.gameObject.layer == 6)
+                {
+                    startPoint = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
 
-                startPoint = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
+                    print(startPoint);
 
-                // absolute values:
-                //startPoint = new Vector3(Mathf.Abs(hit.transform.position.x), Mathf.Abs(hit.transform.position.y), 0);
+                    lineRend.enabled = true;
+                }
 
-                print(startPoint);
-
-                lineRend.enabled = true;
-
-                lineRend.SetPosition(0, startPoint);
-
-        // DEBUG PLS
-        
-                             
             }
         }
 
-        
+        if(lineRend.enabled)
+        {
+            lineRend.SetPosition(0, hit.transform.position);
+        }
 
-
-        //if (mousePressed)   // while the mouse is pressed down
         if (Input.GetMouseButton(0))
         {   
             // detect ray on plain
@@ -83,59 +62,30 @@ public class CapsuleTouchScript : MonoBehaviour
                 lineRend.SetPosition(1, endPoint);                
             }
 
-            //print(endToCamera);
-
-            
-
-            // for (int i = 0; i < numberOfDots; i++)
-            // {
-                //trajectoryDots[i].transform.position = calculatePosition(i * 0.1f);
-                //Instantiate(trajectoryDot, trajectoryDots[i].transform);
-                 //Instantiate(trajectoryDot, trajectoryDots[i].transform);
-            // }
-
-            // for (int i = 0; i < numberOfDots; i++)
-            //     {
-            //         trajectoryDots[i] = Instantiate(trajectoryDot, trajectoryDots[i].transform);
-            //     }  
         }
 
+        // calculate force
         force = (startPoint - endPoint) * power;
 
-        if (Input.GetMouseButtonUp(0)) {            // on mouse release
-
-            //mousePressed = false;
+        if (Input.GetMouseButtonUp(0)) {    // on mouse release
 
             hit.rigidbody.AddForce(force);
 
-            GameManager.Instance.numberOfMoves -- ;
-            UIManager.Instance.UpdateMovesUI();
-
             lineRend.enabled = false;
-            // remove the trajectory dots
-            // for (int i = 0; i < numberOfDots; i++)
-            // {
-            //     Destroy(trajectoryDots[i]);
-            // }
         }
 
-
-
-
-        // if no moves left
-        if(!GameManager.Instance.HasMoves())    
+        if (GameManager.Instance.numberOfCandies == 0)
         {
-            //print("Looser!");
+            GameManager.Instance.ChangeLevel();
         }
     }
 
 
     // attempt to calculate object trajectory
-    private Vector2 calculatePosition(float elapsedTime)
-    {
-        return (new Vector2(endPoint.x, endPoint.y) + //X0
-                new Vector2(-force.x, -force.y) * elapsedTime + //ut
-                0.5f * Physics2D.gravity * elapsedTime * elapsedTime);
-    }
-
+    // private Vector2 calculatePosition(float elapsedTime)
+    // {
+    //     return (new Vector2(endPoint.x, endPoint.y) + //X0
+    //             new Vector2(-force.x, -force.y) * elapsedTime + //ut
+    //             0.5f * Physics2D.gravity * elapsedTime * elapsedTime);
+    // }
 }
