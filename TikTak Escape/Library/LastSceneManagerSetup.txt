@@ -1,41 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/LVL1.unity
+- path: Assets/Scenes/SampleScene.unity
   isLoaded: 1
   isActive: 1
-  isSubScene: 0
-- path: Assets/Scenes/LVL2.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL3.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL4.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL5.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL6.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL7.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL8.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL9.unity
-  isLoaded: 0
-  isActive: 0
-  isSubScene: 0
-- path: Assets/Scenes/LVL10.unity
-  isLoaded: 0
-  isActive: 0
   isSubScene: 0
