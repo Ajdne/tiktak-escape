@@ -17,6 +17,7 @@ public class CapsuleTouchScript : MonoBehaviour
     Vector3 endPoint;
     Vector3 force;
 
+
     // ------------ TRAJECTORY ---------------
     public LineRenderer lineRend;
     // ---------------------------------------
@@ -29,15 +30,15 @@ public class CapsuleTouchScript : MonoBehaviour
 
             if (Physics.Raycast (ray, out hit)) {       // if the click hits a target
 
-                if (hit.rigidbody.gameObject.layer == 6)
+                if (hit.rigidbody.gameObject.layer == 6)    // candy layer
                 {
+
                     startPoint = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
 
                     print(startPoint);
 
                     lineRend.enabled = true;
                 }
-
             }
         }
 
@@ -51,7 +52,6 @@ public class CapsuleTouchScript : MonoBehaviour
             // detect ray on plain
             ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-
             if (Physics.Raycast (ray2, out hit2))   // hit is basically an object hit by this raycast
             {
                 endPoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z * (-1) ));
@@ -61,7 +61,6 @@ public class CapsuleTouchScript : MonoBehaviour
 
                 lineRend.SetPosition(1, endPoint);                
             }
-
         }
 
         // calculate force
@@ -72,9 +71,10 @@ public class CapsuleTouchScript : MonoBehaviour
             hit.rigidbody.AddForce(force);
 
             lineRend.enabled = false;
+            //GameManager.Instance.camMovement.enabled = true;
         }
 
-        if (GameManager.Instance.numberOfCandies == 0)
+        if (GameManager.numberOfCandies == 0)
         {
             GameManager.Instance.ChangeLevel();
         }
