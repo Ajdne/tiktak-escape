@@ -74,10 +74,8 @@ public class CapsuleTouchScript : MonoBehaviour
             //GameManager.Instance.camMovement.enabled = true;
         }
 
-        if (GameManager.numberOfCandies == 0)
-        {
-            GameManager.Instance.ChangeLevel();
-        }
+
+        
     }
 
 

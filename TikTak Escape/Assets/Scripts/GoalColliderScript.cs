@@ -6,9 +6,14 @@ public class GoalColliderScript : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {       
-        GameManager.numberOfCandies --;
+        GameManager.Instance.numberOfCandies --;
         UIManager.Instance.UpdateUI();
 
         Destroy(other.gameObject);
+
+        if (GameManager.Instance.numberOfCandies == 0)
+        {
+            GameManager.Instance.ChangeLevel();
+        }
     }
 }

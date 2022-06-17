@@ -15,12 +15,14 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        candiesLeftText.text = "Candies left: " + GameManager.numberOfCandies.ToString();
+        GameManager.Instance.numberOfCandies = GameManager.Instance.numberOfBasicCandies + GameManager.Instance.numberOfBouncyCandies;
+
+        candiesLeftText.text = "Candies left: " + GameManager.Instance.numberOfCandies.ToString();
     }
 
     // Update is called once per frame
     public void UpdateUI()
     {
-        candiesLeftText.text = "Candies left: " + GameManager.numberOfCandies.ToString();
+        candiesLeftText.text = "Candies left: " + GameManager.Instance.numberOfCandies.ToString();
     }
 }

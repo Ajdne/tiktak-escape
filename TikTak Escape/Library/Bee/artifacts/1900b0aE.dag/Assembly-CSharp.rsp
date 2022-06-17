@@ -357,6 +357,8 @@
 "Assets/Scripts/CapsuleTouchScript.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/GoalColliderScript.cs"
+"Assets/Scripts/MagnetScript.cs"
+"Assets/Scripts/MoveRampScript.cs"
 "Assets/Scripts/RotateBoxScript.cs"
 "Assets/Scripts/SpawnCandyScript.cs"
 "Assets/Scripts/UIManager.cs"

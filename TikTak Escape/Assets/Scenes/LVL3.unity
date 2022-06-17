@@ -322,6 +322,18 @@ PrefabInstance:
       propertyPath: lineRend
       value: 
       objectReference: {fileID: 1241349093}
+    - target: {fileID: 8300261113061332774, guid: 249a4ecae54f14c40a3b04c5c334abb3, type: 3}
+      propertyPath: numberOfCandies
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300261113061332774, guid: 249a4ecae54f14c40a3b04c5c334abb3, type: 3}
+      propertyPath: numberOfBasicCandies
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300261113061332774, guid: 249a4ecae54f14c40a3b04c5c334abb3, type: 3}
+      propertyPath: numberOfBouncyCandies
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8300261113061332775, guid: 249a4ecae54f14c40a3b04c5c334abb3, type: 3}
       propertyPath: candiesLeftText
       value: 

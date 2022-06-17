@@ -7,8 +7,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public static int level;
-    public static int numberOfCandies;
-    public static int numberOfBasicCandies;
+    public int numberOfCandies;
+    public int numberOfBasicCandies;
+    public int numberOfBouncyCandies;
     public GameObject BouncyCandy;
 
     private void Awake()
@@ -16,7 +17,8 @@ public class GameManager : MonoBehaviour
         Instance = this;
         level ++;
         
-        LevelSetup();
+        //CheckLevel();
+        //LevelSetup();
     }
 
     public void ChangeLevel()
@@ -24,35 +26,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("LVL" + (level + 1).ToString());
     }
 
-    // nesto ovde ne valja
-    public void LevelSetup() 
-    {
-        // IYBACITI SWITCH
-       switch(level)
-       {
-        case 1:
-            numberOfBasicCandies += 3;
-            numberOfCandies = numberOfBasicCandies;
-            break;
-        case 2: 
-            numberOfBasicCandies += 2;
-            numberOfCandies = numberOfBasicCandies;
-            break;
-        case 3:
-            numberOfCandies = numberOfBasicCandies + 1;
-            Debug.Log(numberOfCandies);
-            SpawnCapsule(BouncyCandy);
-            break;
-        default:
-            break;
-
-       }
-    }
-
-
     public void SpawnCapsule(GameObject capsule)
     {
-        float randomX = Random.Range(-4, 4);
+        float randomX = Random.Range(-4.5f, 4.5f);
         float randomY = Random.Range(0.5f, 5);
 
         float randomRotX = Random.Range(0, 180);
@@ -61,4 +37,5 @@ public class GameManager : MonoBehaviour
 
         Instantiate(capsule, new Vector3(randomX, randomY, 0), Quaternion.Euler(randomRotX, randomRotY, randomRotZ));
     }
+
 }
