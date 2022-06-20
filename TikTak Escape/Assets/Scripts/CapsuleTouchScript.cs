@@ -35,7 +35,7 @@ public class CapsuleTouchScript : MonoBehaviour
 
                     startPoint = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
 
-                    print(startPoint);
+                    //print(startPoint);
 
                     lineRend.enabled = true;
                 }
@@ -57,7 +57,7 @@ public class CapsuleTouchScript : MonoBehaviour
                 endPoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z * (-1) ));
                 // //endPoint = new Vector3(hit2.transform.position.x, hit2.transform.position.y, 0);
                 
-                print(endPoint);
+                //print(endPoint);
 
                 lineRend.SetPosition(1, endPoint);                
             }
@@ -68,16 +68,28 @@ public class CapsuleTouchScript : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0)) {    // on mouse release
 
+            hit.rigidbody.isKinematic = false;  // need this for the sticky capsule
+            
+            // if(!hit.rigidbody.detectCollisions)
+            // {
+            //     StartCoroutine(ActivateCollision(hit.rigidbody));
+            // }
+            
+
+            //hit.rigidbody.detectCollisions = false;
+
             hit.rigidbody.AddForce(force);
 
             lineRend.enabled = false;
             //GameManager.Instance.camMovement.enabled = true;
         }
-
-
-        
     }
 
+    IEnumerator ActivateCollision(Rigidbody rb)
+    {
+        yield return new WaitForSeconds(0.3f);
+        rb.detectCollisions = true;
+    }
 
     // attempt to calculate object trajectory
     // private Vector2 calculatePosition(float elapsedTime)

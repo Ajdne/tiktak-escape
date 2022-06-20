@@ -15,7 +15,8 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        GameManager.Instance.numberOfCandies = GameManager.Instance.numberOfBasicCandies + GameManager.Instance.numberOfBouncyCandies;
+        GameManager.Instance.numberOfCandies = GameManager.Instance.numberOfBasicCandies + GameManager.Instance.numberOfBouncyCandies
+                                            + GameManager.Instance.numberOfStickyCandies;
 
         candiesLeftText.text = "Candies left: " + GameManager.Instance.numberOfCandies.ToString();
     }

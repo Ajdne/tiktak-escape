@@ -18,5 +18,10 @@ public class SpawnCandyScript : MonoBehaviour
         {
             GameManager.Instance.SpawnCapsule(GameManager.Instance.BouncyCandy);
         }
+
+        for (int i = 0; i < GameManager.Instance.numberOfStickyCandies; i++)
+        {
+            GameManager.Instance.SpawnCapsule(GameManager.Instance.StickyCandy);
+        }
     }
 }

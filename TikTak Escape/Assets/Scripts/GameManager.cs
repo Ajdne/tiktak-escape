@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public int numberOfCandies;
     public int numberOfBasicCandies;
     public int numberOfBouncyCandies;
+    public int numberOfStickyCandies;
     public GameObject BouncyCandy;
+    public GameObject StickyCandy;
 
     private void Awake()
     {
@@ -28,8 +30,8 @@ public class GameManager : MonoBehaviour
 
     public void SpawnCapsule(GameObject capsule)
     {
-        float randomX = Random.Range(-4.5f, 4.5f);
-        float randomY = Random.Range(0.5f, 5);
+        float randomX = Random.Range(-4f, 4.5f);
+        float randomY = Random.Range(1f, 5);
 
         float randomRotX = Random.Range(0, 180);
         float randomRotY = Random.Range(0, 180);
