@@ -28,6 +28,13 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("LVL" + (level + 1).ToString());
     }
 
+    public void RetryLevel()
+    {   
+        SceneManager.LoadScene("LVL" + (level).ToString());
+
+        level--;
+    }
+
     public void SpawnCapsule(GameObject capsule)
     {
         float randomX = Random.Range(-4f, 4.5f);

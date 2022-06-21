@@ -17,10 +17,7 @@ public class CapsuleTouchScript : MonoBehaviour
     Vector3 endPoint;
     Vector3 force;
 
-
-    // ------------ TRAJECTORY ---------------
     public LineRenderer lineRend;
-    // ---------------------------------------
 
     void Update()
     {
@@ -34,8 +31,6 @@ public class CapsuleTouchScript : MonoBehaviour
                 {
 
                     startPoint = new Vector3(hit.transform.position.x, hit.transform.position.y, 0);
-
-                    //print(startPoint);
 
                     lineRend.enabled = true;
                 }
@@ -55,9 +50,6 @@ public class CapsuleTouchScript : MonoBehaviour
             if (Physics.Raycast (ray2, out hit2))   // hit is basically an object hit by this raycast
             {
                 endPoint = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z * (-1) ));
-                // //endPoint = new Vector3(hit2.transform.position.x, hit2.transform.position.y, 0);
-                
-                //print(endPoint);
 
                 lineRend.SetPosition(1, endPoint);                
             }
@@ -67,35 +59,10 @@ public class CapsuleTouchScript : MonoBehaviour
         force = (startPoint - endPoint) * power;
 
         if (Input.GetMouseButtonUp(0)) {    // on mouse release
-
-            hit.rigidbody.isKinematic = false;  // need this for the sticky capsule
-            
-            // if(!hit.rigidbody.detectCollisions)
-            // {
-            //     StartCoroutine(ActivateCollision(hit.rigidbody));
-            // }
-            
-
-            //hit.rigidbody.detectCollisions = false;
-
+        
             hit.rigidbody.AddForce(force);
 
             lineRend.enabled = false;
-            //GameManager.Instance.camMovement.enabled = true;
         }
     }
-
-    IEnumerator ActivateCollision(Rigidbody rb)
-    {
-        yield return new WaitForSeconds(0.3f);
-        rb.detectCollisions = true;
-    }
-
-    // attempt to calculate object trajectory
-    // private Vector2 calculatePosition(float elapsedTime)
-    // {
-    //     return (new Vector2(endPoint.x, endPoint.y) + //X0
-    //             new Vector2(-force.x, -force.y) * elapsedTime + //ut
-    //             0.5f * Physics2D.gravity * elapsedTime * elapsedTime);
-    // }
 }

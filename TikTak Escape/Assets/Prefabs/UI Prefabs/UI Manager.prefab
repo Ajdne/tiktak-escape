@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6676801326018326398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6676801326018326396}
+  - component: {fileID: 6676801326018326397}
+  m_Layer: 0
+  m_Name: UI Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6676801326018326396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676801326018326398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.7055252, y: 6.680529, z: 5.268692}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6676801326018326397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676801326018326398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c8620afa18d73247bf6448c8af7c959, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  candiesLeftText: {fileID: 0}
+  tapToPlayCanvas: {fileID: 1044679730123420086, guid: 040b328a159f6a74dbd5a3756582f457, type: 3}
+  endOfLevelCanvas: {fileID: 9180099466448610023, guid: e0d01a2d38eb58a40b6b444e4b0aa358, type: 3}
+  timerCanvas: {fileID: 5573008549506087670, guid: 500fa369fb618df47ba7383728ce1d80, type: 3}
+  looseCanvas: {fileID: 2098305907154448756, guid: f6c29077400f59849b80217a0397ec55, type: 3}
+  timeLeft: {fileID: 0}
+  confettiObj: {fileID: 8072906796870541247, guid: a2dd1761e892f8e4d9ad107636015066, type: 3}
+  currentTimeLeft: 10

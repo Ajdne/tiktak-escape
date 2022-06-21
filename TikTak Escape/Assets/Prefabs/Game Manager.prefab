@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8300261113061332772}
   - component: {fileID: 8300261113061332773}
   - component: {fileID: 8300261113061332774}
-  - component: {fileID: 8300261113061332775}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -61,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 200000
-  lineRend: {fileID: 0}
+  lineRend: {fileID: 3236089524675693125, guid: e8ae69a669e411b4188e500b302831cb, type: 3}
 --- !u!114 &8300261113061332774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,17 +74,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfCandies: 5
+  numberOfBasicCandies: 0
+  numberOfBouncyCandies: 0
+  numberOfStickyCandies: 0
   BouncyCandy: {fileID: 2434182421797246629, guid: 726f4dadf464150499563036926eb281, type: 3}
---- !u!114 &8300261113061332775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8300261113061332792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c8620afa18d73247bf6448c8af7c959, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  candiesLeftText: {fileID: 0}
+  StickyCandy: {fileID: 0}

@@ -13,7 +13,8 @@ public class GoalColliderScript : MonoBehaviour
 
         if (GameManager.Instance.numberOfCandies == 0)
         {
-            GameManager.Instance.ChangeLevel();
+            UIManager.Instance.ActivateEndOfLevelCanvas();
+            //GameManager.Instance.ChangeLevel();
         }
     }
 }
