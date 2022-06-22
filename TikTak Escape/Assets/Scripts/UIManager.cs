@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     [SerializeField] TextMeshProUGUI candiesLeftText;
+    [SerializeField] GameObject candiesLeftCanvas;
     [SerializeField] GameObject tapToPlayCanvas;
     [SerializeField] GameObject endOfLevelCanvas;
     [SerializeField] GameObject timerCanvas;
@@ -20,6 +21,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
 
+        candiesLeftCanvas.SetActive(false);
         tapToPlayCanvas.SetActive(true);
         endOfLevelCanvas.SetActive(false);
         timerCanvas.SetActive(false);
@@ -56,6 +58,8 @@ public class UIManager : MonoBehaviour
     public void TapToPlay()
     {
         // deactivate tap-to-play canvas
+        candiesLeftCanvas.SetActive(true);
+        
         tapToPlayCanvas.SetActive(false);
     
         // start the passing of time
